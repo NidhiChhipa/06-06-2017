@@ -16,6 +16,8 @@ $con= mysqli_connect("localhost", "root", "root","DB1");
  
 if(isset($_POST['Submit']))
 {  
+	
+
 
 
 			$nameErr=$emailErr=$mobileErr=$addErr=$dobErr=$name=$email=$mobile=$dob="";    
@@ -84,21 +86,21 @@ if(isset($_POST['Submit']))
 			    $dobErr = "Invalid DOB <br>";
 			}
 			} 
-}
+}			
 
 			 if(!empty($nameErr) || !empty($emailErr) || !empty($mobileErr) || !empty($addErr) || !empty($dobErr))
 			 {
 			 	
 			 }
 			 else
-			 {  	echo $sql="INSERT INTO student (Name,Email,Mobile,Address,DOB) 
+			 {  	 $sql="INSERT INTO student (Name,Email,Mobile,Address,DOB) 
 					 VALUES ('$name','$email','$mobile','$address','$dob')"; 
 					 $query=mysqli_query($con,$sql);
 					  
 			   if($query)
 			   {
-			   echo "successfully inserted";
-			   header('Location: Home.php');
+			    echo "successfully inserted";
+			    header('Location: Home.php');
 			   }
 			   else{ 
 			   			echo "failed to insert";
